@@ -375,6 +375,13 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
   [webView evaluateJavaScript:javascript completionHandler:nil];
 }
 
+- (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
+{
+  if (_onWKTerminated != nil) {
+    _onWKTerminated();
+  }
+}
+
 #pragma mark - WKUIDelegate
 
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {

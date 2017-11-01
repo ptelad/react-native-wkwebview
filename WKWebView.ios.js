@@ -159,6 +159,10 @@ var WKWebView = React.createClass({
      */
     onError: PropTypes.func,
     /**
+     * Invoked when the WebKit process is terminated
+     */
+    onWKTerminated: PropTypes.func,
+    /**
      * Report the progress
      */
     onProgress: PropTypes.func,
@@ -296,6 +300,7 @@ var WKWebView = React.createClass({
         onLoadingStart={this._onLoadingStart}
         onLoadingFinish={this._onLoadingFinish}
         onLoadingError={this._onLoadingError}
+        onWKTerminated={this.props.onWKTerminated}
         onProgress={this._onProgress}
         onMessage={this._onMessage}
         onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
