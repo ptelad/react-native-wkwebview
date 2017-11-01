@@ -379,7 +379,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
 {
   if (_onWKTerminated != nil) {
-    _onWKTerminated();
+    _onWKTerminated(nil);
   }
 }
 
