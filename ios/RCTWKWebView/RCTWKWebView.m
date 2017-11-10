@@ -67,7 +67,8 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
     config.userContentController = userController;
     
     config.allowsInlineMediaPlayback = YES;
-    config.mediaPlaybackRequiresUserAction = WKAudiovisualMediaTypeNone;
+    config.mediaPlaybackRequiresUserAction = NO;
+    config.mediaTypesRequiringUserActionForPlayback = WKAudiovisualMediaTypeNone;
     config.requiresUserActionForMediaPlayback = NO;
     
     _webView = [[WKWebView alloc] initWithFrame:self.bounds configuration:config];
