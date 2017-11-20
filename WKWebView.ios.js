@@ -9,7 +9,8 @@ import ReactNative, {
   View,
   NativeModules,
   Text,
-  ActivityIndicator
+  ActivityIndicator,
+  ViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
@@ -83,7 +84,7 @@ class WKWebView extends React.Component {
   static NavigationType: NavigationType;
 
   static propTypes = {
-    ...View.propTypes,
+    ...ViewPropTypes,
 
     html: deprecatedPropType(
       PropTypes.string,
@@ -185,7 +186,7 @@ class WKWebView extends React.Component {
     onNavigationStateChange: PropTypes.func,
     scalesPageToFit: PropTypes.bool,
     startInLoadingState: PropTypes.bool,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
     /**
      * Sets the JS to be injected when the webpage loads.
      */
