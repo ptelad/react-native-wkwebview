@@ -2,7 +2,7 @@
 
 #import <React/RCTView.h>
 
-@class RCTWKWebView;
+@class RCTEkoWKWebView;
 
 /**
  * Special scheme used to pass messages to the injectedJavaScript
@@ -14,13 +14,13 @@ extern NSString *const RCTJSNavigationScheme;
 
 @protocol RCTWKWebViewDelegate <NSObject>
 
-- (BOOL)webView:(RCTWKWebView *)webView
+- (BOOL)webView:(RCTEkoWKWebView *)webView
 shouldStartLoadForRequest:(NSMutableDictionary<NSString *, id> *)request
    withCallback:(RCTDirectEventBlock)callback;
 
 @end
 
-@interface RCTWKWebView : RCTView
+@interface RCTEkoWKWebView : RCTView
 
 - (instancetype)initWithProcessPool:(WKProcessPool *)processPool;
 
