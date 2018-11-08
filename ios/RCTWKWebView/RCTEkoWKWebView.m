@@ -1,4 +1,4 @@
-#import "RCTWKWebView.h"
+#import "RCTEkoWKWebView.h"
 
 #import "WeakScriptMessageDelegate.h"
 
@@ -25,7 +25,7 @@
 @end
 
 
-@interface RCTWKWebView () <WKNavigationDelegate, RCTAutoInsetsProtocol, WKScriptMessageHandler, WKUIDelegate>
+@interface RCTEkoWKWebView () <WKNavigationDelegate, RCTAutoInsetsProtocol, WKScriptMessageHandler, WKUIDelegate>
 
 @property (nonatomic, copy) RCTDirectEventBlock onLoadingStart;
 @property (nonatomic, copy) RCTDirectEventBlock onLoadingFinish;
@@ -38,7 +38,7 @@
 
 @end
 
-@implementation RCTWKWebView
+@implementation RCTEkoWKWebView
 {
   WKWebView *_webView;
   NSString *_injectedJavaScript;

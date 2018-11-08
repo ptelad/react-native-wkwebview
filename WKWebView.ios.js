@@ -17,7 +17,8 @@ import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 import deprecatedPropType from 'react-native/Libraries/Utilities/deprecatedPropType';
 import invariant from 'fbjs/lib/invariant';
 import keyMirror from 'fbjs/lib/keyMirror';
-var WKWebViewManager = NativeModules.WKWebViewManager;
+debugger;
+var WKWebViewManager = NativeModules.EkoWKWebViewManager;
 
 var BGWASH = 'rgba(255,255,255,0.8)';
 var RCT_WEBVIEW_REF = 'webview';
@@ -433,7 +434,7 @@ class WKWebView extends React.Component {
   }
 }
 
-var RCTWKWebView = requireNativeComponent('RCTWKWebView', WKWebView, {
+var RCTWKWebView = requireNativeComponent('RCTEkoWKWebView', WKWebView, {
   nativeOnly: {
     onLoadingStart: true,
     onLoadingError: true,
