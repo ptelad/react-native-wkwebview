@@ -17,7 +17,6 @@ import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 import deprecatedPropType from 'react-native/Libraries/Utilities/deprecatedPropType';
 import invariant from 'fbjs/lib/invariant';
 import keyMirror from 'fbjs/lib/keyMirror';
-debugger;
 var WKWebViewManager = NativeModules.EkoWKWebViewManager;
 
 var BGWASH = 'rgba(255,255,255,0.8)';
