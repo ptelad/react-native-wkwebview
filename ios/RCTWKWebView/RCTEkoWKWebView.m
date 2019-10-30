@@ -300,22 +300,6 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
   NSURL* url = request.URL;
   NSString* scheme = url.scheme;
   
-  BOOL isJSNavigation = [scheme isEqualToString:RCTJSNavigationScheme];
-  
-  // skip this for the JS Navigation handler
-  if (!isJSNavigation && _onShouldStartLoadWithRequest) {
-    NSMutableDictionary<NSString *, id> *event = [self baseEvent];
-    [event addEntriesFromDictionary: @{
-                                       @"url": (request.URL).absoluteString,
-                                       @"navigationType": @(navigationAction.navigationType)
-                                       }];
-    if (![self.delegate webView:self
-      shouldStartLoadForRequest:event
-                   withCallback:_onShouldStartLoadWithRequest]) {
-      return decisionHandler(WKNavigationActionPolicyCancel);
-    }
-  }
-  
   if (_onLoadingStart) {
     // We have this check to filter out iframe requests and whatnot
     BOOL isTopFrame = [url isEqual:request.mainDocumentURL];
@@ -328,13 +312,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
       _onLoadingStart(event);
     }
   }
-  
-  if (isJSNavigation) {
-    decisionHandler(WKNavigationActionPolicyCancel);
-  }
-  else {
-    decisionHandler(WKNavigationActionPolicyAllow);
-  }
+   decisionHandler(WKNavigationActionPolicyAllow);
 }
 
 - (void)webView:(__unused WKWebView *)webView didFailProvisionalNavigation:(__unused WKNavigation *)navigation withError:(NSError *)error
